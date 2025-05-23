@@ -1,6 +1,8 @@
 import { SEARCH_LINKS } from "./constants"
 import { SearchTip, SearchWithCounts, SettingsPanel } from "./styles"
 
+import basic_circle_info from "@assets/icons/basic-636-circle-info.svg"
+
 const SearchSettings = ({ total_results }) => {
   return (
     <>

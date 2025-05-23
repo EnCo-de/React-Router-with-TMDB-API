@@ -53,6 +53,8 @@ export const SearchTip = styled.p`
   color: #666;
 
   img {
+    position: relative;
+    top: 0.375rem;
     width: 1.4em;
     height: 1.4em;
   }
