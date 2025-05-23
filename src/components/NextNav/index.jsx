@@ -1,5 +1,5 @@
 import { NextNavWrapper } from "./styles"
-import { NextNavLink } from "./NextNavLink"
+import NextNavLink from "./NextNavLink"
 
 const NextNav = ({
   previousLabel = "Previous",
