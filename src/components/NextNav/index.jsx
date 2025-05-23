@@ -1,10 +1,23 @@
-// ToDo
-import "./NextNav.css"
+import { NextNavWrapper } from "./styles"
+import { NextNavLink } from "./NextNavLink"
 
-const NextNav = ({ total = 1, searchParams, setSearchParams }) => {
+const NextNav = ({
+  previousLabel = "Previous",
+  nextLabel = "Next",
+  breakLabel = "...",
+  breakClassName = "break-dots",
+  marginPagesDisplayed = 1, // Number of pages to show at the beginning and end
+  pageRangeDisplayed = 2, // Number of pages to show around the current page
+  onPageChange = { handlePageClick },
+  containerClassName = "pagination",
+  activeClassName = "active",
+  total = 1,
+  searchParams,
+  setSearchParams,
+}) => {
   const current = parseInt(searchParams.get("page")) || 1
 
-  const toNext = (which) => {
+  const toNext = (which = null) => {
     const query = Object.fromEntries(searchParams.entries())
     if (!which) {
       setSearchParams({ ...query, page: current + 1 })
@@ -17,6 +30,13 @@ const NextNav = ({ total = 1, searchParams, setSearchParams }) => {
 
   return (
     <>
+      <NextNavWrapper>
+        <ul>
+          {Array(7).map((label, index) => (
+            <NextNavLink key={"li" + index}>{index + 1}</NextNavLink>
+          ))}
+        </ul>
+      </NextNavWrapper>
       <div className="pagination_wrapper">
         <nav className="pagy next-nav" aria-label="Pages">
           <button
@@ -31,11 +51,7 @@ const NextNav = ({ total = 1, searchParams, setSearchParams }) => {
           </button>
           {current > 4 && (
             <>
-              <button
-                key={1}
-                className="next-nav"
-                onClick={() => toNext(1)}
-              >
+              <button key={1} className="next-nav" onClick={() => toNext(1)}>
                 {1}
               </button>{" "}
               <span className="next-nav-dots" aria-disabled="true">

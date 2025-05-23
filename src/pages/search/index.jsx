@@ -50,6 +50,16 @@ const SearchPage = () => {
               ))}
               {found.total_pages > 1 && (
                 <NextNav
+                  previousLabel={"Previous"}
+                  nextLabel={"Next"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={pageCount}
+                  marginPagesDisplayed={2} // Number of pages to show at the beginning and end
+                  pageRangeDisplayed={3} // Number of pages to show around the current page
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  activeClassName={"active"}
                   total={found.total_pages}
                   searchParams={searchParams}
                   setSearchParams={setSearchParams}

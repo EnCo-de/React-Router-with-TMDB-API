@@ -575,7 +575,9 @@ ul.multi_select li:hover a {
   grid-template-areas: "link info";
   grid-template-columns: auto 1fr;
 }
-
+.basic-info {
+  margin-bottom: 1.25rem;
+}
 .info {
   grid-area: info;
 }

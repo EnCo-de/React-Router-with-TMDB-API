@@ -49,7 +49,7 @@ export const SearchWithCounts = styled.ul`
 `
 
 export const SearchTip = styled.p`
-  margin-top: 20px;
+  margin-block: 1.25rem;
   color: #666;
 
   img {
