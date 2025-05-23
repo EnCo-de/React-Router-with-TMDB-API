@@ -884,7 +884,8 @@ footer p {
   padding-inline: 1.25rem;
 }
 
-.hidden {
+.hidden,
+.basic-info .hide-xs {
   display: none;
 }
 
