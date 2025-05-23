@@ -8,9 +8,6 @@ import ContentLayout from "@/layouts/ContentLayout"
 import basic_circle_info from "@assets/icons/basic-636-circle-info.svg"
 import { concatUrl } from "@/utils/search"
 
-// ToDo
-import "./SearchPage.css"
-
 const SearchPage = () => {
   const location = useLocation()
   const [searchParams, setSearchParams] = useSearchParams()
@@ -38,7 +35,7 @@ const SearchPage = () => {
     <>
       <main className="content">
         <ContentLayout>
-          {/* <!-- Sort filter sidebar --> */}
+          {/* <!-- Search tabs sidebar --> */}
           <aside className="aside">
             <SearchSettings total_results={[found.total_results]} />
           </aside>

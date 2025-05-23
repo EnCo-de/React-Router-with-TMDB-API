@@ -615,7 +615,7 @@ ul.multi_select li:hover a {
   aspect-ratio: 2 / 3;
   line-height: 0;
   background: #dbdbdb
-    url("../icons/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg")
+    url("./assets/icons/glyphicons-basic-38-picture-default.svg")
     center/50% no-repeat;
   min-width: 5.875rem;
   width: 5.875rem;
@@ -981,7 +981,7 @@ footer p {
     aspect-ratio: 2 / 3;
     line-height: 0;
     background: #dbdbdb
-      url("../icons/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg")
+      url("./assets/icons/glyphicons-basic-38-picture-default.svg")
       center/50% no-repeat;
   }
 

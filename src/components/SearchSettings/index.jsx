@@ -8,7 +8,7 @@ const SearchSettings = ({ total_results }) => {
         <h3>Search Results</h3>
         <SearchWithCounts>
           {SEARCH_LINKS.map((link, index) => (
-            <li active={index === 0}>
+            <li key={index + link} active={index === 0}>
               {link}
               <span>{total_results[index] ?? 0}</span>
             </li>
