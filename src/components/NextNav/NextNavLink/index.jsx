@@ -1,8 +1,8 @@
-import { NextNavButton } from "./styles"
+import { NextNavButton } from "../styles"
 
-const NextNavLink = ({ children }) => (
+const NextNavLink = ({ children, active }) => (
   <li>
-    <NextNavButton>{children}</NextNavButton>
+    <NextNavButton $current={active} >{children}</NextNavButton>
   </li>
 )
 export default NextNavLink

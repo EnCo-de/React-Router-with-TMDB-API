@@ -33,7 +33,9 @@ const NextNav = ({
       <NextNavWrapper>
         <ul>
           {Array(7).map((label, index) => (
-            <NextNavLink key={"li" + index}>{index + 1}</NextNavLink>
+            <NextNavLink key={"li" + index} active={current === index + 1}>
+              {index + 1}
+            </NextNavLink>
           ))}
         </ul>
       </NextNavWrapper>
