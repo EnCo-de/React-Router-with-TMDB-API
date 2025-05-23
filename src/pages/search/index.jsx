@@ -24,6 +24,10 @@ const SearchPage = () => {
       })
   }, [location])
 
+  const handlePageClick = () => {
+    console.log("handlePageClick")
+  }
+
   if (!dataIsLoaded) {
     return (
       <div>
@@ -54,7 +58,6 @@ const SearchPage = () => {
                   nextLabel={"Next"}
                   breakLabel={"..."}
                   breakClassName={"break-me"}
-                  pageCount={pageCount}
                   marginPagesDisplayed={2} // Number of pages to show at the beginning and end
                   pageRangeDisplayed={3} // Number of pages to show around the current page
                   onPageChange={handlePageClick}
