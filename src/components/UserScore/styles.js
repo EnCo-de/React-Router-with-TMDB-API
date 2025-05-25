@@ -1,11 +1,11 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 const UserScoreChart = styled.div`
   color: var(--white);
   grid-area: consensus;
   display: inline-flex;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: ${(props) => (props.$chartSize === "L" ? "2.75rem" : "2.375rem")};
+  height: ${(props) => (props.$chartSize === "L" ? "2.75rem" : "2.375rem")};
   line-height: 1;
   border-radius: 50%;
   overflow: hidden;
@@ -23,9 +23,20 @@ const UserScoreChart = styled.div`
       ${(props) => props.$trackColor} 0deg
     );
 
-  @media only screen and (width >= 50rem) {
-    width: ${(props) => props.$chartSize};
-    height: ${(props) => props.$chartSize};
+  ${(props) =>
+    props.$chartSize === "L" &&
+    css`
+      transition: transform 0.2s;
+      transform: scale(1);
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    `};
+
+  @media only screen and (${(props) => props.theme.device.tablet}) {
+    width: ${(props) => (props.$chartSize === "L" ? "4.25rem" : "2.375rem")};
+    height: ${(props) => (props.$chartSize === "L" ? "4.25rem" : "2.375rem")};
   }
 `
 
