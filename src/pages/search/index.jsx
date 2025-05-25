@@ -24,9 +24,9 @@ const SearchPage = () => {
       })
   }, [location])
 
+  const current = parseInt(searchParams.get("page")) || 1
+  const total = parseInt(found.total_pages ?? 1)
   const handlePageClick = useCallback((page) => {
-    const current = parseInt(searchParams.get("page")) || 1
-
     const toNext = (which = null) => {
       const query = Object.fromEntries(searchParams.entries())
       if (!which) {
@@ -38,7 +38,7 @@ const SearchPage = () => {
       }
     }
     toNext(page)
-  }, [])
+  }, [current, total])
 
   if (!dataIsLoaded) {
     return (

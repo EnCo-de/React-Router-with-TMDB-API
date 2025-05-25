@@ -15,11 +15,12 @@ a {
 img {
   max-width: 100%;
 }
-/* 
+
 button {
   all: unset;
   line-height: 0;
-} */
+  cursor: pointer;
+}
 
 ul {
   list-style: none;

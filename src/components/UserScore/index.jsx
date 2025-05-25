@@ -1,4 +1,4 @@
-import StyledChart from "@components/styled/Chart"
+import StyledChart from "./styles"
 
 const UserScore = ({ vote_count, consensus, $chartSize = "2.375rem" }) => {
   let trackColor, barColor

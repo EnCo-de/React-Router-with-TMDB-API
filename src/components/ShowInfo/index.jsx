@@ -1,6 +1,6 @@
 import { forwardRef } from "react"
 import { Link } from "react-router-dom"
-import UserScore from "@components/UserScore.jsx"
+import UserScore from "@components/UserScore"
 import { structureData } from "@/utils/discover"
 import { SRC_URL_1X, SRC_URL_2X } from "./constants"
 
