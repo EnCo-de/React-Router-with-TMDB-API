@@ -69,7 +69,7 @@ const DetailsPage = () => {
                 <UserScore
                   vote_count={vote_count}
                   consensus={consensus}
-                  $chartSize={"3.75rem"}
+                  $chartSize={"L"}
                 />
                 <span>User Score</span>
               </div>

@@ -1,7 +1,7 @@
 import UserScoreChart from "./styles"
 import { chooseColors } from "@/utils/colors"
 
-const UserScore = ({ vote_count, consensus, $chartSize = "2.375rem" }) => {
+const UserScore = ({ vote_count, consensus, $chartSize }) => {
   const {trackColor, barColor} = chooseColors(vote_count, consensus)
 
   return (
