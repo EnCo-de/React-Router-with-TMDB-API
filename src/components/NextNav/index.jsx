@@ -18,10 +18,11 @@ const NextNav = ({
     breakLabel,
     marginPagesDisplayed,
     pageRangeDisplayed,
-    toNext,
+    toNext: onPageChange,
     current,
     total,
   })
+  let toNext = onPageChange
   return (
     <>
       <NextNavWrapper>
