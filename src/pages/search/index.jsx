@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import { useLocation, useSearchParams } from "react-router-dom"
 
 import SearchSettings from "@/components/SearchSettings"
@@ -24,9 +24,21 @@ const SearchPage = () => {
       })
   }, [location])
 
-  const handlePageClick = () => {
-    console.log("handlePageClick")
-  }
+  const handlePageClick = useCallback((page) => {
+    const current = parseInt(searchParams.get("page")) || 1
+
+    const toNext = (which = null) => {
+      const query = Object.fromEntries(searchParams.entries())
+      if (!which) {
+        setSearchParams({ ...query, page: current + 1 })
+      } else if (which > 0 && which <= total) {
+        setSearchParams({ ...query, page: which })
+      } else if (which < 0 && current > 1) {
+        setSearchParams({ ...query, page: current - 1 })
+      }
+    }
+    toNext(page)
+  }, [])
 
   if (!dataIsLoaded) {
     return (
@@ -54,11 +66,10 @@ const SearchPage = () => {
               ))}
               {found.total_pages > 1 && (
                 <NextNav
-                  previousLabel={"Previous"}
-                  nextLabel={"Next"}
+                  previousLabel={"← Previous"}
+                  nextLabel={"Next →"}
                   breakLabel={"..."}
-                  breakClassName={"break-me"}
-                  marginPagesDisplayed={2} // Number of pages to show at the beginning and end
+                  marginPagesDisplayed={1} // Number of pages to show at the beginning and end
                   pageRangeDisplayed={3} // Number of pages to show around the current page
                   onPageChange={handlePageClick}
                   containerClassName={"pagination"}

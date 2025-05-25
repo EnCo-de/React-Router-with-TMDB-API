@@ -1,38 +1,32 @@
 import { NextNavWrapper } from "./styles"
+import { createNavContent } from "@/utils/nextNav"
 import NextNavLink from "./NextNavLink"
 
 const NextNav = ({
+  current = 1,
+  total = 1,
+  onPageChange,
   previousLabel = "Previous",
   nextLabel = "Next",
   breakLabel = "...",
-  breakClassName = "break-dots",
   marginPagesDisplayed = 1, // Number of pages to show at the beginning and end
-  pageRangeDisplayed = 2, // Number of pages to show around the current page
-  onPageChange = { handlePageClick },
-  containerClassName = "pagination",
-  activeClassName = "active",
-  total = 1,
-  searchParams,
-  setSearchParams,
+  pageRangeDisplayed = 3, // Number of pages to show around the current page
 }) => {
-  const current = parseInt(searchParams.get("page")) || 1
-
-  const toNext = (which = null) => {
-    const query = Object.fromEntries(searchParams.entries())
-    if (!which) {
-      setSearchParams({ ...query, page: current + 1 })
-    } else if (which > 0 && which <= total) {
-      setSearchParams({ ...query, page: which })
-    } else if (which < 0 && current > 1) {
-      setSearchParams({ ...query, page: current - 1 })
-    }
-  }
-
+  const content = createNavContent({
+    previousLabel,
+    nextLabel,
+    breakLabel,
+    marginPagesDisplayed,
+    pageRangeDisplayed,
+    toNext,
+    current,
+    total,
+  })
   return (
     <>
       <NextNavWrapper>
         <ul>
-          {Array(7).map((label, index) => (
+          {content.map((_, index) => (
             <NextNavLink key={"li" + index} active={current === index + 1}>
               {index + 1}
             </NextNavLink>
