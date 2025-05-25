@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const StyledChart = styled.div`
+const UserScoreChart = styled.div`
   color: var(--white);
   grid-area: consensus;
   display: inline-flex;
@@ -29,4 +29,4 @@ const StyledChart = styled.div`
   }
 `
 
-export default StyledChart
+export default UserScoreChart

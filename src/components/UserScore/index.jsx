@@ -1,23 +1,11 @@
-import StyledChart from "./styles"
+import UserScoreChart from "./styles"
+import { chooseColors } from "@/utils/colors"
 
 const UserScore = ({ vote_count, consensus, $chartSize = "2.375rem" }) => {
-  let trackColor, barColor
-  if (vote_count === 0 || !consensus) {
-    trackColor = "#d4d4d4"
-    barColor = "#d4d4d4"
-  } else if (consensus >= 70) {
-    trackColor = "#204529"
-    barColor = "#21d07a"
-  } else if (consensus >= 40) {
-    trackColor = "#423d0f"
-    barColor = "#d2d531"
-  } else {
-    trackColor = "#571435"
-    barColor = "#db2360"
-  }
+  const {trackColor, barColor} = chooseColors(vote_count, consensus)
 
   return (
-    <StyledChart
+    <UserScoreChart
       className="consensus hide-xs"
       $chartSize={$chartSize}
       $vote_count={vote_count}
@@ -35,7 +23,7 @@ const UserScore = ({ vote_count, consensus, $chartSize = "2.375rem" }) => {
       ) : (
         <span className="user-score">NR</span>
       )}
-    </StyledChart>
+    </UserScoreChart>
   )
 }
 
