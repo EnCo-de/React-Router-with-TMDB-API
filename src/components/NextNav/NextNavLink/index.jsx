@@ -1,9 +1,17 @@
 import { NextNavButton } from "../styles"
 
-const NextNavLink = ({ children, active, dots, disabled }) => (
+const NextNavLink = ({
+  children,
+  handleClick,
+  args,
+  active,
+  disabled,
+  dots,
+}) => (
   <li>
     <NextNavButton
       as={dots && "span"}
+      onClick={handleClick ? () => handleClick(...args) : undefined}
       $current={active}
       disabled={disabled || active}
     >

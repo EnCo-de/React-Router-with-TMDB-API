@@ -27,11 +27,27 @@ const NextNav = ({
     <>
       <NextNavWrapper>
         <ul>
-          {content.map((_, index) => (
-            <NextNavLink key={"li" + index} active={current === index + 1}>
-              {index + 1}
-            </NextNavLink>
-          ))}
+          {/* children, active, dots, disabled }) => (
+                <li>
+                  <NextNavButton
+                    as={dots && "span"}
+                    $current={active}
+                    disabled={disabled || active} */}
+
+          {content.map(
+            ({ label, handleClick, args, active, disabled, dots }, index) => (
+              <NextNavLink
+                key={"li" + index}
+                handleClick={handleClick}
+                args={args}
+                active={active}
+                disabled={disabled}
+                dots={dots}
+              >
+                {label}
+              </NextNavLink>
+            )
+          )}
         </ul>
       </NextNavWrapper>
       <div className="pagination_wrapper">
