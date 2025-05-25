@@ -6,6 +6,7 @@ const NextNavWrapper = styled.nav`
 
   & ul {
     display: flex;
+    justify-content: center;
   }
 `
 

@@ -3,7 +3,7 @@ export const createNavContent = ({
   nextLabel = "Next",
   breakLabel = "...",
   marginPagesDisplayed = 1, // Number of pages to show at the beginning and end
-  pageRangeDisplayed = 3, // Number of pages to show around the current page
+  pageRangeDisplayed = 5, // Number of pages to show around the current page
   toNext, // handle click
   current = 1,
   total = 1,
