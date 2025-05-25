@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react"
+import React, { useState, useEffect } from "react"
 import { useLocation, useSearchParams } from "react-router-dom"
 
 import SearchSettings from "@/components/SearchSettings"
@@ -26,7 +26,7 @@ const SearchPage = () => {
 
   const current = parseInt(searchParams.get("page")) || 1
   const total = parseInt(found.total_pages ?? 1)
-  const handlePageClick = useCallback((page) => {
+  const handlePageClick = (page) => {
     const toNext = (which = null) => {
       const query = Object.fromEntries(searchParams.entries())
       if (!which) {
@@ -38,7 +38,7 @@ const SearchPage = () => {
       }
     }
     toNext(page)
-  }, [current, total])
+  }
 
   if (!dataIsLoaded) {
     return (
@@ -74,6 +74,7 @@ const SearchPage = () => {
                   onPageChange={handlePageClick}
                   containerClassName={"pagination"}
                   activeClassName={"active"}
+                  current = {current}
                   total={found.total_pages}
                   searchParams={searchParams}
                   setSearchParams={setSearchParams}

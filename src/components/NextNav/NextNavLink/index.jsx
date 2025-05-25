@@ -13,7 +13,7 @@ const NextNavLink = ({
       as={dots && "span"}
       onClick={handleClick ? () => handleClick(...args) : undefined}
       $current={active}
-      disabled={disabled || active}
+      disabled={disabled}
     >
       {children}
     </NextNavButton>
